@@ -1,1 +1,65 @@
 /* Other rules */
+
+/* GLOBAL */
+.container {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 20px 0;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  height: 60px;
+  border-bottom: lightcoral solid 1px;
+}
+
+/* HERO */
+
+.Logo {
+  width: 156px;
+}
+
+.hero {
+  background-color: lightblue;
+  margin: 40px 0;
+}
+
+/* MENU  */
+
+.menu > div {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: 20px 0;
+}
+
+.menu > div > div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  flex-wrap: wrap;
+  width: 820px;
+  /* height: 160px; */
+}
+
+.meal {
+  box-sizing: border-box;
+  width: 400px;
+  margin-bottom: 20px;
+  border: solid black 1px;
+}
