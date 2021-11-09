@@ -4,15 +4,11 @@ import { useState, useEffect } from 'react';
 import Menu from './components/Menu';
 import Hero from './components/Hero';
 import Header from './components/Header';
-import Panier from './components/Panier';
 
 const App = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [total, setTotal] = useState(0);
-
-  // data for Panier
-  const [listMeals, setListMeals] = useState([]);
 
   const fraisDeLivraison = Number(2.5).toFixed(2);
 
@@ -35,17 +31,13 @@ const App = () => {
     <div className="container">
       <Header />
       <Hero data={data} />
-      <Panier
-        total={total}
-        fraisDeLivraison={fraisDeLivraison}
-        listMeals={listMeals}
-      />
       <Menu
         data={data}
         total={total}
         setTotal={setTotal}
-        listMeals={listMeals}
-        setListMeals={setListMeals}
+        // listMeals={listMeals}
+        // setListMeals={setListMeals}
+        fraisDeLivraison={fraisDeLivraison}
       />
     </div>
   );
