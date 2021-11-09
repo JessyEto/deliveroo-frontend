@@ -20,6 +20,7 @@ const Menu = ({
         fraisDeLivraison={fraisDeLivraison}
         listMeals={listMeals}
         mealCount={mealCount}
+        // handlePanierChange={handlePanierChange}
       />
       <div className="menu">
         {data.categories
@@ -40,6 +41,7 @@ const Menu = ({
                         title: elem.title,
                         prix: elem.price,
                       };
+
                       const indexElem = listMeals.findIndex((e) => {
                         return e.id === elem.id;
                       });
@@ -47,9 +49,9 @@ const Menu = ({
                       if (indexElem === -1) {
                         newTabListMeals.push(obj);
                         setListMeals(newTabListMeals);
-                        setMealCount(mealCount + Number(elem.price));
+                        setMealCount(Number(mealCount) + Number(elem.price));
                       } else {
-                        setMealCount(mealCount + Number(elem.price));
+                        setMealCount(Number(mealCount) + Number(elem.price));
                       }
                     };
 
