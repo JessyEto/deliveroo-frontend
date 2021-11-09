@@ -1,18 +1,14 @@
 import Panier from './Panier';
 import { useState } from 'react';
+// Import of icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Menu = ({ data, total, setTotal, fraisDeLivraison }) => {
   // data for Panier
   const [listMeals, setListMeals] = useState([]);
 
   return (
-    <div>
-      <Panier
-        total={total}
-        fraisDeLivraison={fraisDeLivraison}
-        listMeals={listMeals}
-        // handlePanierChange={handlePanierChange}
-      />
+    <div className="master-menu">
       <div className="menu">
         {data.categories
           .map((elem, index) => {
@@ -62,7 +58,14 @@ const Menu = ({ data, total, setTotal, fraisDeLivraison }) => {
                         <p>{elem.description}</p>
                         <p>
                           {elem.price}
-                          <span>{elem.popular && 'Populaire'}</span>
+                          <span>
+                            {elem.popular && (
+                              <span>
+                                <FontAwesomeIcon icon="star" />
+                                Populaire
+                              </span>
+                            )}
+                          </span>
                         </p>
                       </div>
                     );
@@ -73,6 +76,12 @@ const Menu = ({ data, total, setTotal, fraisDeLivraison }) => {
           })
           .slice(0, 6)}
       </div>
+      <Panier
+        total={total}
+        fraisDeLivraison={fraisDeLivraison}
+        listMeals={listMeals}
+        setListMeals={setListMeals}
+      />
     </div>
   );
 };

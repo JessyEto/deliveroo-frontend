@@ -5,6 +5,17 @@ import Menu from './components/Menu';
 import Hero from './components/Hero';
 import Header from './components/Header';
 
+// Import of fantawesome
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faPlus,
+  faMinus,
+  faStar,
+  faPlusCircle,
+  faMinusCircle,
+} from '@fortawesome/free-solid-svg-icons';
+library.add(faPlus, faMinus, faStar, faPlusCircle, faMinusCircle);
+
 const App = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
