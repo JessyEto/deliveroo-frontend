@@ -1,15 +1,7 @@
 import Panier from './Panier';
 import { useState } from 'react';
 
-const Menu = ({
-  data,
-  total,
-  setTotal,
-  // listMeals,
-  // setListMeals,
-  fraisDeLivraison,
-}) => {
-  const [mealCount, setMealCount] = useState(0);
+const Menu = ({ data, total, setTotal, fraisDeLivraison }) => {
   // data for Panier
   const [listMeals, setListMeals] = useState([]);
 
@@ -19,7 +11,6 @@ const Menu = ({
         total={total}
         fraisDeLivraison={fraisDeLivraison}
         listMeals={listMeals}
-        mealCount={mealCount}
         // handlePanierChange={handlePanierChange}
       />
       <div className="menu">
@@ -40,6 +31,7 @@ const Menu = ({
                         id: elem.id,
                         title: elem.title,
                         prix: elem.price,
+                        quantity: 1,
                       };
 
                       const indexElem = listMeals.findIndex((e) => {
@@ -49,9 +41,13 @@ const Menu = ({
                       if (indexElem === -1) {
                         newTabListMeals.push(obj);
                         setListMeals(newTabListMeals);
-                        setMealCount(Number(mealCount) + Number(elem.price));
                       } else {
-                        setMealCount(Number(mealCount) + Number(elem.price));
+                        listMeals[indexElem] = {
+                          id: elem.id,
+                          title: elem.title,
+                          prix: elem.price,
+                          quantity: listMeals[indexElem].quantity + 1,
+                        };
                       }
                     };
 

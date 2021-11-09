@@ -1,14 +1,14 @@
-const Panier = ({ total, fraisDeLivraison, listMeals, mealCount }) => {
+const Panier = ({ total, fraisDeLivraison, listMeals }) => {
   return (
     <div>
       <h3>Valider mon panier</h3>
       {listMeals.map((elem, index) => {
         return (
-          <p key={elem.id}>
+          <p key={index}>
             <span>moins</span>
-            <span> {0} </span>
+            <span> {elem.quantity} </span>
             <span>plus </span>
-            {elem.title} <span>{mealCount}</span>
+            {elem.title} <span>yo</span>
           </p>
         );
       })}
